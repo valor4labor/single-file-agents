@@ -30,8 +30,35 @@ uv run sfa_jq_gemini_v1.py "Filter scores above 80 from data/mock.json and save 
 ### Duckdb Agent
 qqq
 
-### Meta Prompt Agent
-qqq
+### Meta Prompt Generator (sfa_meta_prompt_openai_v1.py)
+An AI-powered assistant that generates comprehensive, structured prompts for language models.
+
+Example usage:
+```bash
+# Generate a meta prompt using command-line arguments.
+# Optional arguments are marked with a ?.
+uv run sfa_meta_prompt_openai_v1.py \
+    --purpose "generate mermaid diagrams" \
+    --instructions "generate a mermaid valid chart, use diagram type specified or default flow, use examples to understand the structure of the output" \
+    --sections "examples, user-prompt" \
+    --examples "create examples of 3 basic mermaid charts with <user-chart-request> and <chart-response> blocks" \
+    --variables "user-prompt"
+
+# Without optional arguments, the script will enter interactive mode.
+uv run sfa_meta_prompt_openai_v1.py \
+    --purpose "generate mermaid diagrams" \
+    --instructions "generate a mermaid valid chart, use diagram type specified or default flow, use examples to understand the structure of the output"
+
+# Interactive Mode
+# Just run the script without any flags to enter interactive mode.
+# You'll be prompted step by step for:
+# - Purpose (required): The main goal of your prompt
+# - Instructions (required): Detailed instructions for the model
+# - Sections (optional): Additional sections to include
+# - Examples (optional): Example inputs and outputs
+# - Variables (optional): Placeholders for dynamic content
+uv run sfa_meta_prompt_openai_v1.py
+```
 
 ### Git Agent
 qqq
