@@ -41,6 +41,31 @@ qqq
 - Python 3.8+
 - uv package manager
 - GEMINI_API_KEY
+- jq command-line JSON processor
+
+### Installing Required Tools
+
+#### jq Installation
+
+macOS:
+```bash
+brew install jq
+```
+
+Windows:
+- Download from [stedolan.github.io/jq/download](https://stedolan.github.io/jq/download/)
+- Or install with Chocolatey: `choco install jq`
+
+#### DuckDB Installation
+
+macOS:
+```bash
+brew install duckdb
+```
+
+Windows:
+- Download the CLI executable from [duckdb.org/docs/installation](https://duckdb.org/docs/installation)
+- Add the executable location to your system PATH
 
 ## Installation
 
