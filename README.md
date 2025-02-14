@@ -1,7 +1,7 @@
 # Single File Agents (SFA)
 > Premise: #1: What if we could pack single purpose, powerful AI Agents into a single python file?
 > 
-> Premise: #2: What's the best structural pattern for building Agents improve in capability as compute and intelligence increases?
+> Premise: #2: What's the best structural pattern for building Agents that can improve in capability as compute and intelligence increases?
 
 ## What is this?
 
