@@ -1,9 +1,15 @@
 # Single File Agents (SFA)
-> Premise: What if we could pack single purpose, powerful AI Agents into a single python file?
+> Premise: #1: What if we could pack single purpose, powerful AI Agents into a single python file?
+> 
+> Premise: #2: What's the best structural pattern for building Agents improve in capability as compute and intelligence increases?
 
 ## What is this?
 
-A collection of powerful single-file agents built on top of [uv](https://github.com/astral/uv) - the modern Python package installer and resolver. These agents aim to do one thing and one thing only. They demonstrate precise prompt engineering and GenAI patterns for practical tasks many of which I share on the [IndyDevDan YouTube channel](https://www.youtube.com/@indydevdan).
+A collection of powerful single-file agents built on top of [uv](https://github.com/astral/uv) - the modern Python package installer and resolver. 
+
+These agents aim to do one thing and one thing only. They demonstrate precise prompt engineering and GenAI patterns for practical tasks many of which I share on the [IndyDevDan YouTube channel](https://www.youtube.com/@indydevdan).
+
+This repo contains a few agents built across the big 3 GenAI providers (Gemini, OpenAI, Anthropic).
 
 ## Features
 
@@ -11,6 +17,7 @@ A collection of powerful single-file agents built on top of [uv](https://github.
 - **Minimal, Precise Agents**: Carefully crafted prompts for small agents that can do one thing really well
 - **Modern Python**: Built on uv for fast, reliable dependency management
 - **Run From The Cloud**: With uv, you can run these scripts from your server or right from a gist (see my gists commands)
+- **Patternful**: Building effective agents is about setting up the right prompts, tools, and process for your use case. Once you setup a great pattern, you can re-use it over and over. That's part of the magic of these SFA's. 
 
 ## Agents
 > Note: We're using the term 'agent' loosely. These SFA's are prompts, prompt chains, and a couple are official Agents.
