@@ -34,8 +34,50 @@ uv run sfa_jq_gemini_v1.py --exe "Filter scores above 80 from data/mock.json and
 uv run sfa_jq_gemini_v1.py "Filter scores above 80 from data/mock.json and save to high_scores.json"
 ```
 
-### Duckdb Agent
-qqq
+### DuckDB Agents
+We have three DuckDB agents that demonstrate different approaches and capabilities across major AI providers:
+
+#### DuckDB OpenAI Agent (sfa_duckdb_openai_v2.py)
+An AI-powered assistant that generates and executes DuckDB SQL queries using OpenAI's function calling capabilities.
+
+Example usage:
+```bash
+# Run DuckDB agent with default compute loops (10)
+uv run sfa_duckdb_openai_v2.py -d ./data/mock.db -p "Show me all users with score above 80"
+
+# Run with custom compute loops 
+uv run sfa_duckdb_openai_v2.py -d ./data/mock.db -p "Show me all users with score above 80" -c 5
+```
+
+#### DuckDB Anthropic Agent (sfa_duckdb_anthropic_v2.py)
+An AI-powered assistant that generates and executes DuckDB SQL queries using Claude's tool use capabilities.
+
+Example usage:
+```bash
+# Run DuckDB agent with default compute loops (10)
+uv run sfa_duckdb_anthropic_v2.py -d ./data/mock.db -p "Show me all users with score above 80"
+
+# Run with custom compute loops
+uv run sfa_duckdb_anthropic_v2.py -d ./data/mock.db -p "Show me all users with score above 80" -c 5
+```
+
+#### DuckDB Gemini Agent (sfa_duckdb_gemini_v2.py)
+An AI-powered assistant that generates and executes DuckDB SQL queries using Gemini's function calling capabilities.
+
+Example usage:
+```bash
+# Run DuckDB agent with default compute loops (10)
+uv run sfa_duckdb_gemini_v2.py -d ./data/mock.db -p "Show me all users with score above 80"
+
+# Run with custom compute loops
+uv run sfa_duckdb_gemini_v2.py -d ./data/mock.db -p "Show me all users with score above 80" -c 5
+```
+
+Each agent demonstrates different approaches to:
+- Tool/function calling implementations
+- Error handling and recovery
+- Query validation and testing
+- Result formatting
 
 ### Meta Prompt Generator (sfa_meta_prompt_openai_v1.py)
 An AI-powered assistant that generates comprehensive, structured prompts for language models.
@@ -68,14 +110,17 @@ uv run sfa_meta_prompt_openai_v1.py
 ```
 
 ### Git Agent
-qqq
+> Up for a challenge?
 
 ## Requirements
 
 - Python 3.8+
 - uv package manager
-- GEMINI_API_KEY
-- jq command-line JSON processor
+- GEMINI_API_KEY (for Gemini-based agents)
+- OPENAI_API_KEY (for OpenAI-based agents) 
+- ANTHROPIC_API_KEY (for Anthropic-based agents)
+- jq command-line JSON processor (for JQ agent)
+- DuckDB CLI (for DuckDB agents)
 
 ### Installing Required Tools
 
@@ -116,6 +161,12 @@ git clone <repository-url>
 3. Set your Gemini API key (for JQ generator):
 ```bash
 export GEMINI_API_KEY='your-api-key-here'
+
+# Set your OpenAI API key (for DuckDB agents):
+export OPENAI_API_KEY='your-api-key-here'
+
+# Set your Anthropic API key (for DuckDB agents):
+export ANTHROPIC_API_KEY='your-api-key-here'
 ```
 
 ## Shout Outs + Resources for you
@@ -134,3 +185,6 @@ export GEMINI_API_KEY='your-api-key-here'
 ## License
 
 MIT License - feel free to use this code in your own projects.
+
+
+If you find value from my work: give a shout out and tag my YT channel [IndyDevDan](https://www.youtube.com/@indydevdan).
