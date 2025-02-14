@@ -19,8 +19,25 @@ This repo contains a few agents built across the big 3 GenAI providers (Gemini, 
 - **Run From The Cloud**: With uv, you can run these scripts from your server or right from a gist (see my gists commands)
 - **Patternful**: Building effective agents is about setting up the right prompts, tools, and process for your use case. Once you setup a great pattern, you can re-use it over and over. That's part of the magic of these SFA's. 
 
+## Test Data
+
+The project includes a test database (`data/mock.db`) and a JSON file (`data/mock.json`) for testing purposes. The database contains sample user data with the following characteristics:
+
+### User Table
+- 30 sample users with varied attributes
+- Fields: id (UUID), name, age, city, score, is_active, status, created_at
+- Test data includes:
+  - Names: Alice, Bob, Charlie, Diana, Eric, Fiona, Jane, John
+  - Cities: Berlin, London, New York, Paris, Singapore, Sydney, Tokyo, Toronto
+  - Status values: active, inactive, pending, archived
+  - Age range: 20-65
+  - Score range: 3.1-96.18
+  - Date range: 2023-2025
+
+Perfect for testing filtering, sorting, and aggregation operations with realistic data variations.
+
 ## Agents
-> Note: We're using the term 'agent' loosely. These SFA's are prompts, prompt chains, and a couple are official Agents.
+> Note: We're using the term 'agent' loosely for some of these SFA's. We have prompts, prompt chains, and a couple are official Agents.
 
 ### JQ Command Agent (sfa_jq_gemini_v1.py)
 An AI-powered assistant that generates precise jq commands for JSON processing
@@ -185,6 +202,5 @@ export ANTHROPIC_API_KEY='your-api-key-here'
 ## License
 
 MIT License - feel free to use this code in your own projects.
-
 
 If you find value from my work: give a shout out and tag my YT channel [IndyDevDan](https://www.youtube.com/@indydevdan).
