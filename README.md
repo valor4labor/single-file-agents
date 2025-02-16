@@ -98,7 +98,9 @@ Perfect for testing filtering, sorting, and aggregation operations with realisti
 ## Agents
 > Note: We're using the term 'agent' loosely for some of these SFA's. We have prompts, prompt chains, and a couple are official Agents.
 
-### JQ Command Agent (sfa_jq_gemini_v1.py)
+### JQ Command Agent 
+> (sfa_jq_gemini_v1.py)
+
 An AI-powered assistant that generates precise jq commands for JSON processing
 
 Example usage:
@@ -110,10 +112,12 @@ uv run sfa_jq_gemini_v1.py --exe "Filter scores above 80 from data/analytics.jso
 uv run sfa_jq_gemini_v1.py "Filter scores above 80 from data/analytics.json and save to high_scores.json"
 ```
 
-### DuckDB Agents
+### DuckDB Agents 
+> (sfa_duckdb_openai_v2.py, sfa_duckdb_anthropic_v2.py, sfa_duckdb_gemini_v2.py, sfa_duckdb_gemini_v1.py)
+
 We have three DuckDB agents that demonstrate different approaches and capabilities across major AI providers:
 
-#### DuckDB OpenAI Agent (sfa_duckdb_openai_v2.py)
+#### DuckDB OpenAI Agent (sfa_duckdb_openai_v2.py, sfa_duckdb_openai_v1.py)
 An AI-powered assistant that generates and executes DuckDB SQL queries using OpenAI's function calling capabilities.
 
 Example usage:
@@ -148,12 +152,6 @@ uv run sfa_duckdb_gemini_v2.py -d ./data/analytics.db -p "Show me all users with
 # Run with custom compute loops
 uv run sfa_duckdb_gemini_v2.py -d ./data/analytics.db -p "Show me all users with score above 80" -c 5
 ```
-
-Each agent demonstrates different approaches to:
-- Tool/function calling implementations
-- Error handling and recovery
-- Query validation and testing
-- Result formatting
 
 ### Meta Prompt Generator (sfa_meta_prompt_openai_v1.py)
 An AI-powered assistant that generates comprehensive, structured prompts for language models.
