@@ -80,7 +80,7 @@ uv run sfa_meta_prompt_openai_v1.py \
 
 ## Test Data
 
-The project includes a test database (`data/analytics.db`) and a JSON file (`data/analytics.json`) for testing purposes. The database contains sample user data with the following characteristics:
+The project includes a test duckdb database (`data/analytics.db`), a sqlite database (`data/analytics.sqlite`), and a JSON file (`data/analytics.json`) for testing purposes. The database contains sample user data with the following characteristics:
 
 ### User Table
 - 30 sample users with varied attributes
