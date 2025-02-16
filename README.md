@@ -3,13 +3,72 @@
 > 
 > Premise: #2: What's the best structural pattern for building Agents that can improve in capability as compute and intelligence increases?
 
+![Single File Agents](images/single-file-agents-thumb.png)
+
 ## What is this?
 
 A collection of powerful single-file agents built on top of [uv](https://github.com/astral/uv) - the modern Python package installer and resolver. 
 
-These agents aim to do one thing and one thing only. They demonstrate precise prompt engineering and GenAI patterns for practical tasks many of which I share on the [IndyDevDan YouTube channel](https://www.youtube.com/@indydevdan).
+These agents aim to do one thing and one thing only. They demonstrate precise prompt engineering and GenAI patterns for practical tasks many of which I share on the [IndyDevDan YouTube channel](https://www.youtube.com/@indydevdan). Watch us walk through the Single File Agent in [this video](https://youtu.be/YAIJV48QlXc).
 
 This repo contains a few agents built across the big 3 GenAI providers (Gemini, OpenAI, Anthropic).
+
+## Quick Start
+
+Export your API keys:
+
+```bash
+export GEMINI_API_KEY='your-api-key-here'
+
+export OPENAI_API_KEY='your-api-key-here'
+
+export ANTHROPIC_API_KEY='your-api-key-here'
+```
+
+JQ Agent:
+
+```bash
+uv run sfa_jq_gemini_v1.py --exe "Filter scores above 80 from data/analytics.json and save to high_scores.json"
+```
+
+DuckDB Agent (OpenAI):
+
+```bash
+# Tip tier
+uv run sfa_duckdb_openai_v2.py -d ./data/analytics.db -p "Show me all users with score above 80"
+```
+
+DuckDB Agent (Anthropic):
+
+```bash
+# Tip tier
+uv run sfa_duckdb_anthropic_v2.py -d ./data/analytics.db -p "Show me all users with score above 80"
+```
+
+DuckDB Agent (Gemini):
+
+```bash
+# Buggy but usually works
+uv run sfa_duckdb_gemini_v2.py -d ./data/analytics.db -p "Show me all users with score above 80"
+```
+
+SQLite Agent (OpenAI):
+
+```bash
+uv run sfa_sqlite_openai_v2.py -d ./data/analytics.sqlite -p "Show me all users with score above 80"
+```
+
+Meta Prompt Generator:
+
+```bash
+uv run sfa_meta_prompt_openai_v1.py \
+    --purpose "generate mermaid diagrams" \
+    --instructions "generate a mermaid valid chart, use diagram type specified or default flow, use examples to understand the structure of the output" \
+    --sections "user-prompt" \
+    --variables "user-prompt"
+```
+
+
 
 ## Features
 
@@ -21,7 +80,7 @@ This repo contains a few agents built across the big 3 GenAI providers (Gemini, 
 
 ## Test Data
 
-The project includes a test database (`data/mock.db`) and a JSON file (`data/mock.json`) for testing purposes. The database contains sample user data with the following characteristics:
+The project includes a test database (`data/analytics.db`) and a JSON file (`data/analytics.json`) for testing purposes. The database contains sample user data with the following characteristics:
 
 ### User Table
 - 30 sample users with varied attributes
@@ -45,10 +104,10 @@ An AI-powered assistant that generates precise jq commands for JSON processing
 Example usage:
 ```bash
 # Generate and execute a jq command
-uv run sfa_jq_gemini_v1.py --exe "Filter scores above 80 from data/mock.json and save to high_scores.json"
+uv run sfa_jq_gemini_v1.py --exe "Filter scores above 80 from data/analytics.json and save to high_scores.json"
 
 # Generate command only
-uv run sfa_jq_gemini_v1.py "Filter scores above 80 from data/mock.json and save to high_scores.json"
+uv run sfa_jq_gemini_v1.py "Filter scores above 80 from data/analytics.json and save to high_scores.json"
 ```
 
 ### DuckDB Agents
@@ -60,10 +119,10 @@ An AI-powered assistant that generates and executes DuckDB SQL queries using Ope
 Example usage:
 ```bash
 # Run DuckDB agent with default compute loops (10)
-uv run sfa_duckdb_openai_v2.py -d ./data/mock.db -p "Show me all users with score above 80"
+uv run sfa_duckdb_openai_v2.py -d ./data/analytics.db -p "Show me all users with score above 80"
 
 # Run with custom compute loops 
-uv run sfa_duckdb_openai_v2.py -d ./data/mock.db -p "Show me all users with score above 80" -c 5
+uv run sfa_duckdb_openai_v2.py -d ./data/analytics.db -p "Show me all users with score above 80" -c 5
 ```
 
 #### DuckDB Anthropic Agent (sfa_duckdb_anthropic_v2.py)
@@ -72,10 +131,10 @@ An AI-powered assistant that generates and executes DuckDB SQL queries using Cla
 Example usage:
 ```bash
 # Run DuckDB agent with default compute loops (10)
-uv run sfa_duckdb_anthropic_v2.py -d ./data/mock.db -p "Show me all users with score above 80"
+uv run sfa_duckdb_anthropic_v2.py -d ./data/analytics.db -p "Show me all users with score above 80"
 
 # Run with custom compute loops
-uv run sfa_duckdb_anthropic_v2.py -d ./data/mock.db -p "Show me all users with score above 80" -c 5
+uv run sfa_duckdb_anthropic_v2.py -d ./data/analytics.db -p "Show me all users with score above 80" -c 5
 ```
 
 #### DuckDB Gemini Agent (sfa_duckdb_gemini_v2.py)
@@ -84,10 +143,10 @@ An AI-powered assistant that generates and executes DuckDB SQL queries using Gem
 Example usage:
 ```bash
 # Run DuckDB agent with default compute loops (10)
-uv run sfa_duckdb_gemini_v2.py -d ./data/mock.db -p "Show me all users with score above 80"
+uv run sfa_duckdb_gemini_v2.py -d ./data/analytics.db -p "Show me all users with score above 80"
 
 # Run with custom compute loops
-uv run sfa_duckdb_gemini_v2.py -d ./data/mock.db -p "Show me all users with score above 80" -c 5
+uv run sfa_duckdb_gemini_v2.py -d ./data/analytics.db -p "Show me all users with score above 80" -c 5
 ```
 
 Each agent demonstrates different approaches to:
