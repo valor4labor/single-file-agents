@@ -3,6 +3,8 @@
 > 
 > Premise: #2: What's the best structural pattern for building Agents that can improve in capability as compute and intelligence increases?
 
+![Scale Your AI Coding Impact](images/scale-your-ai-coding-impact-with-devin-cursor-aider.png)
+
 ![Single File Agents](images/single-file-agents-thumb.png)
 
 ## What is this?
@@ -10,6 +12,8 @@
 A collection of powerful single-file agents built on top of [uv](https://github.com/astral/uv) - the modern Python package installer and resolver. 
 
 These agents aim to do one thing and one thing only. They demonstrate precise prompt engineering and GenAI patterns for practical tasks many of which I share on the [IndyDevDan YouTube channel](https://www.youtube.com/@indydevdan). Watch us walk through the Single File Agent in [this video](https://youtu.be/YAIJV48QlXc).
+
+You can also check out [this video](https://youtu.be/vq-vTsbSSZ0) where we use [Devin](https://devin.ai/), [Cursor](https://www.cursor.com/), [Aider](https://aider.chat/), and [PAIC-Patterns](https://agenticengineer.com/principled-ai-coding) to build three new agents with powerful spec (plan) prompts.
 
 This repo contains a few agents built across the big 3 GenAI providers (Gemini, OpenAI, Anthropic).
 
@@ -23,6 +27,8 @@ export GEMINI_API_KEY='your-api-key-here'
 export OPENAI_API_KEY='your-api-key-here'
 
 export ANTHROPIC_API_KEY='your-api-key-here'
+
+export FIRECRAWL_API_KEY='your-api-key-here' # Get your API key from https://www.firecrawl.dev/
 ```
 
 JQ Agent:
@@ -68,7 +74,57 @@ uv run sfa_meta_prompt_openai_v1.py \
     --variables "user-prompt"
 ```
 
+### Bash Editor Agent (Anthropic)
+> (sfa_bash_editor_agent_anthropic_v2.py)
 
+An AI-powered assistant that can both edit files and execute bash commands using Claude's tool use capabilities.
+
+Example usage:
+```bash
+# View a file
+uv run sfa_bash_editor_agent_anthropic_v2.py --prompt "Show me the first 10 lines of README.md"
+
+# Create a new file
+uv run sfa_bash_editor_agent_anthropic_v2.py --prompt "Create a new file called hello.txt with 'Hello World!' in it"
+
+# Replace text in a file
+uv run sfa_bash_editor_agent_anthropic_v2.py --prompt "Create a new file called hello.txt with 'Hello World!' in it. Then update hello.txt to say 'Hello AI Coding World'"
+
+# Execute a bash command
+uv run sfa_bash_editor_agent_anthropic_v2.py --prompt "List all Python files in the current directory sorted by size"
+```
+
+### Polars CSV Agent (OpenAI)
+> (sfa_polars_csv_agent_openai_v2.py)
+
+An AI-powered assistant that generates and executes Polars data transformations for CSV files using OpenAI's function calling capabilities.
+
+Example usage:
+```bash
+# Run Polars CSV agent with default compute loops (10)
+uv run sfa_polars_csv_agent_openai_v2.py -i "data/analytics.csv" -p "What is the average age of the users?"
+
+# Run with custom compute loops
+uv run sfa_polars_csv_agent_openai_v2.py -i "data/analytics.csv" -p "What is the average age of the users?" -c 5
+```
+
+### Web Scraper Agent (OpenAI)
+> (sfa_scrapper_agent_openai_v2.py)
+
+An AI-powered web scraping and content filtering assistant that uses OpenAI's function calling capabilities and the Firecrawl API for efficient web scraping.
+
+Example usage:
+```bash
+# Basic scraping with markdown list output
+uv run sfa_scrapper_agent_openai_v2.py -u "https://example.com" -p "Scrap and format each sentence as a separate line in a markdown list" -o "example.md"
+
+# Advanced scraping with specific content extraction
+uv run sfa_scrapper_agent_openai_v2.py \
+    --url https://agenticengineer.com/principled-ai-coding \
+    --prompt "What are the names and descriptions of each lesson?" \
+    --output-file-path paic-lessons.md \
+    -c 10
+```
 
 ## Features
 
