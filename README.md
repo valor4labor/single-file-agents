@@ -312,6 +312,11 @@ export ANTHROPIC_API_KEY='your-api-key-here'
 - [Anthropic Agent Chatbot Example](https://github.com/anthropics/courses/blob/master/tool_use/06_chatbot_with_multiple_tools.ipynb)
 - [Anthropic Customer Service Agent](https://github.com/anthropics/anthropic-cookbook/blob/main/tool_use/customer_service_agent.ipynb)
 
+## AI Coding
+
+## Context Priming
+Read README.md, CLAUDE.md, ai_docs/*, and run git ls-files to understand this codebase.
+
 ## License
 
 MIT License - feel free to use this code in your own projects.
