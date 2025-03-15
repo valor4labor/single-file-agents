@@ -11,8 +11,6 @@
 
 A collection of powerful single-file agents built on top of [uv](https://github.com/astral/uv) - the modern Python package installer and resolver. 
 
-This project provides a framework for creating compact, specialized AI agents that excel at specific tasks. Each agent is self-contained in a single Python file, making them easy to distribute, understand, and modify. The repository showcases implementations across different AI providers (OpenAI, Anthropic, and Gemini) with practical examples for data processing, database querying, and text generation.
-
 These agents aim to do one thing and one thing only. They demonstrate precise prompt engineering and GenAI patterns for practical tasks many of which I share on the [IndyDevDan YouTube channel](https://www.youtube.com/@indydevdan). Watch us walk through the Single File Agent in [this video](https://youtu.be/YAIJV48QlXc).
 
 You can also check out [this video](https://youtu.be/vq-vTsbSSZ0) where we use [Devin](https://devin.ai/), [Cursor](https://www.cursor.com/), [Aider](https://aider.chat/), and [PAIC-Patterns](https://agenticengineer.com/principled-ai-coding) to build three new agents with powerful spec (plan) prompts.
